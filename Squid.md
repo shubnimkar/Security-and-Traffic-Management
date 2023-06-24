@@ -1,10 +1,9 @@
 # INSTALL AND CONFIG SQUID ON RHEL/ CENTOS
 
 To Install Squid
-```
-yum install squid -y
 
-```
+`#ffffff` yum install squid -y
+
 Now changes are to be made in "squid.conf" file
 
       we can find squid.conf in path below:

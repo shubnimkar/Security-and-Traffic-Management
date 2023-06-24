@@ -29,24 +29,8 @@ Now changes are to be made in "squid.conf" file
 
             squid -z
 
+The squid.conf file will look something like this;
 
-
-
-[root@STM1 ~]# yum install squid
-
-[root@STM1 ~]# cd /etc/squid/
-
-[root@STM1 squid]# vim squid.conf
-[root@STM1 squid]# squid -z 
-
-[root@STM1 squid]# systemctl start squid
-[root@STM1 squid]# systemctl status squid
-
-################################################################################################################
-[root@STM1 squid]# vim squid.conf
-[root@STM1 squid]# systemctl restart squid
-
-[root@STM1 squid]# cat squid.conf
          #
          # Recommended minimum configuration:
          #
@@ -123,7 +107,12 @@ Now changes are to be made in "squid.conf" file
          refresh_pattern ^gopher:	1440	0%	1440
          refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
          refresh_pattern .		0	20%	4320
-################################################################################################################
+
+         
+
+# LETS TRY FEW WAYS TO USE SQUID
+
+
 # BLOCKED FOR THE ENTIRE NETWORK
 
 [root@STM1 squid]# vim squid.conf

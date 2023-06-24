@@ -4,8 +4,10 @@
    
    > yum install squid -y
 
+#Now changes are to be made in "squid.conf" file
 
-cd /etc/lib/squid
+   > we can find squid.conf 
+      cd /etc/lib/squid
 
 
 enable cache dir
@@ -22,9 +24,6 @@ show error name as proxy.panda.com
 squid -z = to create swap directories
 
 
-
-
-#########################################################################################################################################################
 
 [root@STM1 ~]# yum install squid
 
@@ -84,58 +83,11 @@ Jun 24 17:19:13 STM1 squid[5678]: Squid Parent: will start 1 kids
 Jun 24 17:19:13 STM1 squid[5678]: Squid Parent: (squid-1) process 5680 started
 Jun 24 17:19:13 STM1 systemd[1]: Started Squid caching proxy.
 ################################################################################################################
-root@STM1 squid]# ip a
-1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-    inet 127.0.0.1/8 scope host lo
-       valid_lft forever preferred_lft forever
-    inet6 ::1/128 scope host 
-       valid_lft forever preferred_lft forever
-2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:0c:29:29:f0:e9 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.100.152/24 brd 192.168.100.255 scope global noprefixroute dynamic ens33
-       valid_lft 1682sec preferred_lft 1682sec
-    inet6 fe80::3b3a:9001:c23e:8f14/64 scope link noprefixroute 
-       valid_lft forever preferred_lft forever
-3: ens37: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-    link/ether 00:0c:29:29:f0:f3 brd ff:ff:ff:ff:ff:ff
-    inet 10.10.10.131/24 brd 10.10.10.255 scope global noprefixroute dynamic ens37
-       valid_lft 1511sec preferred_lft 1511sec
-    inet6 fe80::4009:46ce:2d9a:1776/64 scope link noprefixroute 
-       valid_lft forever preferred_lft forever
-4: virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
-    link/ether 52:54:00:fd:d2:b0 brd ff:ff:ff:ff:ff:ff
-    inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
-       valid_lft forever preferred_lft forever
-5: virbr0-nic: <BROADCAST,MULTICAST> mtu 1500 qdisc pfifo_fast master virbr0 state DOWN group default qlen 1000
-    link/ether 52:54:00:fd:d2:b0 brd ff:ff:ff:ff:ff:ff
+
 ################################################################################################################
 [root@STM1 squid]# vim squid.conf
 [root@STM1 squid]# systemctl restart squid
-[root@STM1 squid]# systemctl status squid
-● squid.service - Squid caching proxy
-   Loaded: loaded (/usr/lib/systemd/system/squid.service; disabled; vendor preset: disabled)
-   Active: active (running) since Sat 2023-06-24 17:41:19 IST; 5s ago
-  Process: 7060 ExecStop=/usr/sbin/squid -k shutdown -f $SQUID_CONF (code=exited, status=0/SUCCESS)
-  Process: 7004 ExecReload=/usr/sbin/squid $SQUID_OPTS -k reconfigure -f $SQUID_CONF (code=exited, status=0/SUCCESS)
-  Process: 7068 ExecStart=/usr/sbin/squid $SQUID_OPTS -f $SQUID_CONF (code=exited, status=0/SUCCESS)
-  Process: 7063 ExecStartPre=/usr/libexec/squid/cache_swap.sh (code=exited, status=0/SUCCESS)
- Main PID: 7070 (squid)
-    Tasks: 4
-   CGroup: /system.slice/squid.service
-           ├─7070 /usr/sbin/squid -f /etc/squid/squid.conf
-           ├─7072 (squid-1) -f /etc/squid/squid.conf
-           ├─7079 (logfile-daemon) /var/log/squid/access.log
-           └─7080 (unlinkd)
 
-Jun 24 17:41:19 STM1 systemd[1]: Stopped Squid caching proxy.
-Jun 24 17:41:19 STM1 systemd[1]: Starting Squid caching proxy...
-Jun 24 17:41:19 STM1 squid[7070]: Squid Parent: will start 1 kids
-Jun 24 17:41:19 STM1 systemd[1]: Started Squid caching proxy.
-Jun 24 17:41:19 STM1 squid[7070]: Squid Parent: (squid-1) process 7072 started
-
-
-################################################################################################################
 [root@STM1 squid]# cat squid.conf
 #
 # Recommended minimum configuration:
@@ -213,7 +165,6 @@ refresh_pattern ^ftp:		1440	20%	10080
 refresh_pattern ^gopher:	1440	0%	1440
 refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
 refresh_pattern .		0	20%	4320
-[root@STM1 squid]# 
 ################################################################################################################
 $$ BLOCKED FOR NETWORK
 

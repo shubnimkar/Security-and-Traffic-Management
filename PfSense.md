@@ -275,4 +275,56 @@ AND CLIENT MACHINES WILL BE ABLE TO ACCESS NETWORK THROUGH OUR FIREWALL
 
 # ------------------------------------------------------------------------------
 
+# This is Main Dashboard
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_32_06](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/7f7e8127-5a11-4239-9e45-7a7245e1b959)
+
+# ------------------------------------------------------------------------------
+
+# Let's do trial if our firewall is working or not
+
+                I want to block a single website
                 
+                here that is www.hotstar.com 
+                
+                Find IP of hotstar for the same , because this firewall only works with IP not with domain names
+                
+
+![fr](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/b4897398-1d92-49a4-8dbe-9e3ddd5f9e50)
+
+                Go to Firewall >> Rules >> LAN >> Add (UP arrow add)
+
+                
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_43_13](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/f3239247-4323-491b-9e4f-2d9a646ea180)
+
+                
+                        Choose Action : Block
+                        Interface : LAN
+                        
+                        Destination:
+                                Single host or alias 108.159.80.89 (IP of hotstar)
+                                Destination Port Range : HTTP 443
+                        
+                        >> Save
+
+
+                Click on apply changes
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_43_24](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/f2006dd6-1a5b-48e2-af4d-1415efe42ddc)
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_43_48](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/63c23315-84ae-4ce9-9118-6c10661840aa)
+
+
+# Now go to client machine and open your browser and try to access for websites. 
+
+                Here we are able to access wikipedia.org and reddit.com 
+
+![w](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/9a962f4e-7049-47c1-b65b-eb7d857ba3dc)
+
+![r](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/80ec1fa5-ec9a-4561-8fca-a7d471ce2729)
+
+                and now go for www.hotstar.com 
+                
+![h](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/8c4a0552-657d-4900-84d6-6bc7393d9207)
+
+                so we are able to access other website and not the hotstar.com , so it verifies our task

@@ -147,3 +147,43 @@ And we are good to go....!!!
 
 # ------------------------------------------------------------------------------
 
+# Configure your client machines:
+
+                Here, lets do it for one of our client 
+                I'm doing it on one which is having centos 7 installed
+                
+                On terminal run "nmtui"
+                
+                now select your network adapter here is "ens33"
+                
+                Select IPv4 CONFIGURATION <MANUAL>
+                Address : 10.10.10.142 (Should be in range of our host-only network )
+                Gateway : 10.10.10.140 (Our configured pfsense address)
+                DNS servers : 10.10.10.140 (Our configured pfsense address)
+
+![nmtui](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/828eac63-bd06-4c36-a1a1-e98b75214372)
+
+# ------------------------------------------------------------------------------
+
+# Check IP on client machine 
+
+                On terminal run "ip a"
+                and check if your machine is getting our ip 10.10.10.142
+                
+![ip client](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/05f827e8-20c8-4325-a392-6dbcbae96c8d)
+
+# ------------------------------------------------------------------------------
+
+# Check if your nameserver are configured eitherwise you will not be able to connect to network
+
+![checking ip a](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/7447a799-38eb-46ae-806f-0d0ea60f2b6d)
+
+# ------------------------------------------------------------------------------
+
+# If not then you can add in resolv.conf
+
+![network nahi chala to](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/9595f34a-c9cd-4114-8d23-9fdea917dfe2)
+
+# ------------------------------------------------------------------------------
+
+

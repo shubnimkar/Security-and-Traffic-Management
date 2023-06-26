@@ -182,8 +182,51 @@ And we are good to go....!!!
 
 # If not then you can add in resolv.conf
 
+                add entry in resolv.conf file
+                
+                vim /etc/resolv.conf
+                
+                nameserver 192.168.100.2 (This is IP in your pfsense machine NAT network address just replace last octet ip number with 2)
+
 ![network nahi chala to](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/9595f34a-c9cd-4114-8d23-9fdea917dfe2)
 
 # ------------------------------------------------------------------------------
 
+# TILL HERE WE'VE SEEN PFSENSE INSTALLATION AND CLIENT CONFIGURATION 
 
+TO SUMMARIZE TILL NOW :
+
+Pfsense IS OUR FIREWALL WHICH HAS 2 NETWORKS : NAT ,HOST-ONLY
+
+CLIENTS WILL ALWAYS BE IN HOST-ONLY 
+
+AND CLIENT MACHINES WILL BE ABLE TO ACCESS NETWORK THROUGH OUR FIREWALL
+
+# ------------------------------------------------------------------------------
+
+# Let's see Pfsense config. on web UI
+
+                we've given host-only IP as 10.10.10.140
+                
+                Open your browser and paste the same ip and get going
+
+                The login page 
+                
+                Use credentials below to login
+                
+                Default Username : admin
+                Default Password : pfsense
+
+![login](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/a802d56c-78fd-4a5d-9229-c54bfca30f11)
+
+# ------------------------------------------------------------------------------
+
+# Let's configure :
+
+
+
+
+
+
+
+                

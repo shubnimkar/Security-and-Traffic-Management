@@ -223,9 +223,26 @@ AND CLIENT MACHINES WILL BE ABLE TO ACCESS NETWORK THROUGH OUR FIREWALL
 
 # Let's configure :
 
+                Landing page 
+                
+                
+![setup](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/026513ac-2b45-4449-b2f4-09e506a54a74)
+
+                Click next
 
 
+![Capture2](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/cbf22cd0-1249-43d6-b17d-7fcb090dd2b5)
 
+                Click next
+
+                Enter Primary DNS Server : 192.168.100.2 (NAT address DNS)
+
+
+![s2](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/d0c1c987-33d5-476c-ba48-5703be00ae7f)
+
+                Select Time Zone
+
+![pfSense - Login - Google Chrome 26-06-2023 17_25_47](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/94761e35-df1c-42d4-89f3-9bd243df82bd)
 
 
 

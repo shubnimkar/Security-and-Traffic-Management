@@ -1,5 +1,6 @@
 # Prerequisites
 
+I've 2 machines on VM one is Centos 7.9 and Other is Windows server 
 Download pfsense ISO from link below
     
     https://www.pfsense.org/download/

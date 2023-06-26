@@ -15,6 +15,8 @@ Download pfsense ISO from link below
 
 And we are good to go....!!!
 
+# ------------------------------------------------------------------------------
+
 # Create VM with following specifications:
 
         1. Machine config should be Debian 10x.64bit 
@@ -31,43 +33,117 @@ And we are good to go....!!!
         
 ![Capture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/9e16065a-401d-48c6-822f-d555ee3a1ff5)
 
+# ------------------------------------------------------------------------------
+
 # Now power on the VM with pfsense image
-You'll see something like this on screen
-It'll automatically start the next sequence
+
+                You'll see something like this on screen
+                
+                It'll automatically start the next sequence
+
 ![Capture PNG1](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/8f5bdf04-990c-4718-afd0-e614b1be26cd)
 
-Accept the Notice and proceed
+# ------------------------------------------------------------------------------
+
+                Accept the Notice and proceed
+                
 ![Captu1re](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/147f0bae-6988-44af-b18b-483cf5b9faaa)
 
-Select Install pfsense
+# ------------------------------------------------------------------------------
+
+                Select Install pfsense
+                
 ![Cap1ture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/411605e6-fbc9-4cb8-85f2-15c6cb808470)
 
-Continue with default keymap
+# ------------------------------------------------------------------------------
+
+                Continue with default keymap
+                
 ![C1apture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/06da48eb-ddf1-42ba-a600-8820f2b556fc)
 
-Auto ZFS
+# ------------------------------------------------------------------------------
+
+                Auto ZFS
+
 ![Cap11ture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/635701a1-8296-46db-aee1-85a7cea78b30)
 
-Install >> Proceed with installation
+# ------------------------------------------------------------------------------
+
+                Install >> Proceed with installation
+                
 ![Capture1](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/53db21d9-e4a9-4848-977f-521e4c642dcf)
 
-Stripe - No redundancy
+# ------------------------------------------------------------------------------
+
+                Stripe - No redundancy
+                
 ![Cap222ture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/e70e7209-6abb-4b03-bbf7-43120ab2d0f7)
 
-ZFS Configuration
-Press Space to select and proceed
+# ------------------------------------------------------------------------------
+
+                ZFS Configuration
+                
+                Press Space to select and proceed
+                
 ![spacedabana](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/96c87aae-9d24-4ad5-83c0-d4a40a919ee2)
 
-Select for partition
-go for yes 
+# ------------------------------------------------------------------------------
+
+                Select for partition
+                
+                go for yes 
+                
 ![2Capture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/41df2382-624d-4607-beb0-5cb7987aadb2)
 
-Installtion will now begin..
+# ------------------------------------------------------------------------------
+
+                Installation will now begin..
+                
 ![Ca234pture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/e75bc769-9179-429e-a7f3-8a54a49c3fcc)
 
-Select No 
+# ------------------------------------------------------------------------------
+
+                Select No
+                
 ![Captu234re](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/27c298f6-6bcc-4e67-a107-b4e803e68b39)
 
-Reboot
+# ------------------------------------------------------------------------------
+
+                Reboot
+                
 ![reebootCapture](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/b5f65af5-4024-40da-be00-4e249173fb02)
+
+# ------------------------------------------------------------------------------
+
+# Installation is completed and this is the main menu for pfsense
+
+![after](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/8f3d96b2-50d6-42c7-bb6f-773edaeb9b33)
+
+# ------------------------------------------------------------------------------
+
+# Now to set interfaces IP Address 
+
+                Select 2 from options
+                
+                Then will ask for number of instances
+                I've Configured 2 instances
+                
+                FOR LAN
+                
+                Enter the IP address of desire but of " host-only " network
+                Here i've taken : 10.10.10.140
+                Then subnet
+                Subnet : 24
+
+
+![1](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/50ad9e63-c526-4708-8e24-cc781e1f2b29)
+
+                FOR WAN
+                
+                Just press enter and mark options as no 
+                finally press enter for confirmation
+
+![wan](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/70d7be16-01e2-4ec4-9fbf-f1090fe60b0a)
+
+# ------------------------------------------------------------------------------
 

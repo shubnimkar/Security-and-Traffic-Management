@@ -245,5 +245,34 @@ AND CLIENT MACHINES WILL BE ABLE TO ACCESS NETWORK THROUGH OUR FIREWALL
 ![pfSense - Login - Google Chrome 26-06-2023 17_25_47](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/94761e35-df1c-42d4-89f3-9bd243df82bd)
 
 
+                I'm setting this for DHCP hence selecting DHCP and made no change in entire page and next
+
+![41](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/d86dc827-4e94-4544-bfa4-d445c3e5d4f6)
+![43](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/0e50d5ab-e461-4409-97b6-33bc8de6b523)
+![44](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/bcfc132b-0c8a-4952-abf2-4a0cc0b96059)
+
+
+                NO need to make changed as we've already done in CLI 
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_28_03](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/84f38e7c-cd19-4cc8-88ff-ef3c01b6a322)
+
+
+                Setup Your password (It'll change your default password for portal)
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_28_20](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/210aa9f4-c5ec-40d6-a1e5-cabb64086e45)
+
+
+                Reload
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_28_26](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/977b462e-b174-4fe9-a108-bf1b7824bffe)
+
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_28_31](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/73d34e8e-662d-4daa-8a42-7a52d60a5ba8)
+
+                Pfsense configuration is complete
+
+![pfSense home arpa - Wizard_ pfSense Setup_ Configure LAN Interface - Google Chrome 26-06-2023 17_28_36](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/9b085245-2159-4ee4-915e-4ab23937046f)
+
+# ------------------------------------------------------------------------------
 
                 

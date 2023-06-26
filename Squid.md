@@ -2,7 +2,7 @@
 
 To Install Squid
 
-`#ffffff` yum install squid -y
+      yum install squid -y
 
 Now changes are to be made in "squid.conf" file
 

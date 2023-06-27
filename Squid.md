@@ -1,5 +1,7 @@
 # INSTALL AND CONFIG SQUID ON RHEL/ CENTOS
 
+
+
 ```To Install Squid```
 
       yum install squid -y

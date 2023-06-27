@@ -221,25 +221,19 @@ The squid.conf file will look something like this;
             
                systemctl restart squid
 
-###################################################################################################################
+               
+# ------------------------------------------------------------------------------
+
 # FOR ANY WORDS WE WANT TO BLOCK
 
+1. Make a file with all words you want to
 #
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
 #
 acl hpcsalab src 10.10.10.0/24
-acl centos7 src 10.10.10.129
-acl cdac-time time A 18:00-20:00
-acl cdac dstdomain .cdac.in
 acl badwords url_regex -i "/etc/squid/badwords.txt"
-acl blocked_sites dstdomain "/etc/squid/blocked-sites.txt"
-acl centos7-blocked dstdomain "/etc/squid/centos7-blocked.txt"
-http_access allow cdac-time
-http_access deny centos7-blocked centos7
-http_access deny blocked_sites hpcsalab
 http_access deny badwords hpcsalab
 http_access allow hpcsalab
-
 #http_access allow localnet
 http_access allow localhost
 
@@ -253,7 +247,7 @@ football
 movies
 bookmyshow
 
-[root@STM1 squid]# systemctl restart squid
+
 
 
 

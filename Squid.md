@@ -257,36 +257,52 @@
 
 # Squid Authentication 
 
+1. Add this in squid.conf file
+   
+   ```auth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/squid-users```
 
-#
-# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-#
+   ```auth_param basic children 5```
+            Children means number of users you want to create
+     
+   ```auth_param basic realm Squid Basic Authentication```
+   
+   ```auth_param basic credentialsttl 2 hours```
+            Credentialssttl : facilitates admin to set password time for users
 
-# Example rule allowing access from your local networks.
-# Adapt localnet in the ACL section to list your (internal) IP networks
-# from where browsing should be allowed
 
-auth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/squid-users
-auth_param basic children 5
-auth_param basic realm Squid Basic Authentication
-auth_param basic credentialsttl 2 hours
-acl acts_users proxy_auth REQUIRED
+2. Edit squid.conf (Add acls and http_access)
 
-acl user1 proxy_auth user1
-acl user1-access dstdomain "/etc/squid/user1.txt"
-acl all_web dstdomain .
-#acl panda proxy_auth panda
-acl panda-access dstdomain "/etc/squid/panda.txt"
+Define ACL's : 
 
-http_access allow !user1-access user1
-http_access allow !panda-access panda
+Syntax of ACL :   ```acl name of user proxy_auth name of user```
 
-http_access allow all_web acts_users
-http_access allow localhost
+            
+            #
+            # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+            #
+            
+            auth_param basic program /usr/lib64/squid/basic_ncsa_auth /etc/squid/squid-users
+            auth_param basic children 5
+            auth_param basic realm Squid Basic Authentication
+            auth_param basic credentialsttl 2 hours
+            acl acts_users proxy_auth REQUIRED
+            
+            acl user1 proxy_auth user1
+            acl user1-access dstdomain "/etc/squid/user1.txt"
+            acl all_web dstdomain .
+            
+            acl panda proxy_auth panda
+            acl panda-access dstdomain "/etc/squid/panda.txt"
+            
+            http_access allow !user1-access user1
+            http_access allow !panda-access panda
+            
+            http_access allow all_web acts_users
+            http_access allow localhost
+            
+            # And finally deny all other access to this proxy
+            http_access deny all
 
-# And finally deny all other access to this proxy
-http_access deny all
-
-            3. Restart squid service
+3. Restart squid service
                               
-               systemctl restart squid
+      systemctl restart squid

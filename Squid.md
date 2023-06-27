@@ -110,7 +110,7 @@ The squid.conf file will look something like this;
 
 # ------------------------------------------------------------------------------
      
-LETS SEE FEW WAYS TO USE SQUID
+# Lets see few ways, how we can use SQUID
 
 # ------------------------------------------------------------------------------
 
@@ -183,230 +183,46 @@ LETS SEE FEW WAYS TO USE SQUID
                
 # ------------------------------------------------------------------------------
        
-[root@STM1 squid]# cat squid.conf
-#
-# Recommended minimum configuration:
-#
-
-# Example rule allowing access from your local networks.
-# Adapt to list your (internal) IP networks from where browsing
-# should be allowed
-acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
-acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
-acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
-acl localnet src fc00::/7       # RFC 4193 local private network range
-acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
-
-acl SSL_ports port 443
-acl Safe_ports port 80		# http
-acl Safe_ports port 21		# ftp
-acl Safe_ports port 443		# https
-acl Safe_ports port 70		# gopher
-acl Safe_ports port 210		# wais
-acl Safe_ports port 1025-65535	# unregistered ports
-acl Safe_ports port 280		# http-mgmt
-acl Safe_ports port 488		# gss-http
-acl Safe_ports port 591		# filemaker
-acl Safe_ports port 777		# multiling http
-acl CONNECT method CONNECT
-
-#
-# Recommended minimum Access Permission configuration:
-#
-# Deny requests to certain unsafe ports
-http_access deny !Safe_ports
-
-# Deny CONNECT to other than secure SSL ports
-http_access deny CONNECT !SSL_ports
-
-# Only allow cachemgr access from localhost
-http_access allow localhost manager
-http_access deny manager
-
-# We strongly recommend the following be uncommented to protect innocent
-# web applications running on the proxy server who think the only
-# one who can access services on "localhost" is a local user
-#http_access deny to_localhost
-
-#
-# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-#
-acl hpcsalab src 10.10.10.0/24
-acl centos7 src 10.10.10.129
-acl blocked_sites dstdomain "/etc/squid/blocked-sites.txt"
-acl centos7-blocked dstdomain "/etc/squid/centos7-blocked.txt"
-http_access deny centos7-blocked centos7
-http_access deny blocked_sites hpcsalab
-http_access allow hpcsalab
-# Example rule allowing access from your local networks.
-# Adapt localnet in the ACL section to list your (internal) IP networks
-# from where browsing should be allowed
-#http_access allow localnet
-http_access allow localhost
-
-# And finally deny all other access to this proxy
-http_access deny all
-
-# Squid normally listens to port 3128
-http_port 3128
-
-# Uncomment and adjust the following to add a disk cache directory.
-cache_dir ufs /var/spool/squid 2048 16 256
-visible_hostname proxy.panda.demo
-# Leave coredumps in the first cache dir
-coredump_dir /var/spool/squid
-
-#
-# Add any of your own refresh_pattern entries above these.
-#
-refresh_pattern ^ftp:		1440	20%	10080
-refresh_pattern ^gopher:	1440	0%	1440
-refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
-refresh_pattern .		0	20%	4320
-
-[root@STM1 squid]# vim /etc/squid/centos7-blocked.txt
-
-.microsoft.com
-.redhat.com
-.facebook.com
-[root@STM1 squid]# systemctl restart squid
-################################################################################################################
 # FOR A TIME PERIOD OR DAY
 
-[root@STM1 squid]# vim squid.conf
-[root@STM1 squid]# cat squid.conf
-#
-# Recommended minimum configuration:
-#
+            1. We can block or can allow any websites for any time slots or days.
+                  Time will be in 24 HR format
 
-# Example rule allowing access from your local networks.
-# Adapt to list your (internal) IP networks from where browsing
-# should be allowed
-acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
-acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
-acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
-acl localnet src fc00::/7       # RFC 4193 local private network range
-acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
+                  Days have specific alphabets assigned 
 
-acl SSL_ports port 443
-acl Safe_ports port 80		# http
-acl Safe_ports port 21		# ftp
-acl Safe_ports port 443		# https
-acl Safe_ports port 70		# gopher
-acl Safe_ports port 210		# wais
-acl Safe_ports port 1025-65535	# unregistered ports
-acl Safe_ports port 280		# http-mgmt
-acl Safe_ports port 488		# gss-http
-acl Safe_ports port 591		# filemaker
-acl Safe_ports port 777		# multiling http
-acl CONNECT method CONNECT
+                  Monday : M
+                  Tuesday : T
+                  Wednesday : W
+                  Thursday : H
+                  Friday : F
+                  Saturday : A
+                  Sunday : S
 
-#
-# Recommended minimum Access Permission configuration:
-#
-# Deny requests to certain unsafe ports
-http_access deny !Safe_ports
+                  so acl format will be: 
+                                          acl <acl-name> dstdomain <any sitename>
+                  this can be done to bunch of websites too as we have done above
 
-# Deny CONNECT to other than secure SSL ports
-http_access deny CONNECT !SSL_ports
+                  Here I've taken bookmyshow.com for example to block on sturday between evening 6 PM - 8 PM
 
-# Only allow cachemgr access from localhost
-http_access allow localhost manager
-http_access deny manager
+            2. Edit squid.conf (Add acls and http_access)
 
-# We strongly recommend the following be uncommented to protect innocent
-# web applications running on the proxy server who think the only
-# one who can access services on "localhost" is a local user
-#http_access deny to_localhost
-
-#
-# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
-#
-acl hpcsalab src 10.10.10.0/24
-acl centos7 src 10.10.10.129
-acl cdac-time time A 18:00-20:00
-acl cdac dstdomain .cdac.in
-acl blocked_sites dstdomain "/etc/squid/blocked-sites.txt"
-acl centos7-blocked dstdomain "/etc/squid/centos7-blocked.txt"
-http_access deny cdac-time
-http_access deny centos7-blocked centos7
-http_access deny blocked_sites hpcsalab
-http_access allow hpcsalab
-# Example rule allowing access from your local networks.
-# Adapt localnet in the ACL section to list your (internal) IP networks
-# from where browsing should be allowed
-#http_access allow localnet
-http_access allow localhost
-
-# And finally deny all other access to this proxy
-http_access deny all
-
-# Squid normally listens to port 3128
-http_port 3128
-
-# Uncomment and adjust the following to add a disk cache directory.
-cache_dir ufs /var/spool/squid 2048 16 256
-visible_hostname proxy.panda.demo
-# Leave coredumps in the first cache dir
-coredump_dir /var/spool/squid
-
-#
-# Add any of your own refresh_pattern entries above these.
-#
-refresh_pattern ^ftp:		1440	20%	10080
-refresh_pattern ^gopher:	1440	0%	1440
-refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
-refresh_pattern .		0	20%	4320
-[root@STM1 squid]# systemctl restart squid
+            
+                  #
+                  # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+                  #
+                  acl my-time time A 18:00-20:00
+                  acl cdac dstdomain .bookmyshow.com
+                  http_access deny my-time
+                  
+                  #http_access allow localnet
+                  http_access allow localhost
+            
+            3. Restart squid service
+            
+               systemctl restart squid
 
 ###################################################################################################################
-# FOR ANY WORDS
-
-[root@STM1 squid]# vim squid.conf
-[root@STM1 squid]# cat squid.conf
-#
-# Recommended minimum configuration:
-#
-
-# Example rule allowing access from your local networks.
-# Adapt to list your (internal) IP networks from where browsing
-# should be allowed
-acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
-acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
-acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
-acl localnet src fc00::/7       # RFC 4193 local private network range
-acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
-
-acl SSL_ports port 443
-acl Safe_ports port 80		# http
-acl Safe_ports port 21		# ftp
-acl Safe_ports port 443		# https
-acl Safe_ports port 70		# gopher
-acl Safe_ports port 210		# wais
-acl Safe_ports port 1025-65535	# unregistered ports
-acl Safe_ports port 280		# http-mgmt
-acl Safe_ports port 488		# gss-http
-acl Safe_ports port 591		# filemaker
-acl Safe_ports port 777		# multiling http
-acl CONNECT method CONNECT
-
-#
-# Recommended minimum Access Permission configuration:
-#
-# Deny requests to certain unsafe ports
-http_access deny !Safe_ports
-
-# Deny CONNECT to other than secure SSL ports
-http_access deny CONNECT !SSL_ports
-
-# Only allow cachemgr access from localhost
-http_access allow localhost manager
-http_access deny manager
-
-# We strongly recommend the following be uncommented to protect innocent
-# web applications running on the proxy server who think the only
-# one who can access services on "localhost" is a local user
-#http_access deny to_localhost
+# FOR ANY WORDS WE WANT TO BLOCK
 
 #
 # INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
@@ -423,31 +239,11 @@ http_access deny centos7-blocked centos7
 http_access deny blocked_sites hpcsalab
 http_access deny badwords hpcsalab
 http_access allow hpcsalab
-# Example rule allowing access from your local networks.
-# Adapt localnet in the ACL section to list your (internal) IP networks
-# from where browsing should be allowed
+
 #http_access allow localnet
 http_access allow localhost
 
-# And finally deny all other access to this proxy
-http_access deny all
 
-# Squid normally listens to port 3128
-http_port 3128
-
-# Uncomment and adjust the following to add a disk cache directory.
-cache_dir ufs /var/spool/squid 2048 16 256
-visible_hostname proxy.panda.demo
-# Leave coredumps in the first cache dir
-coredump_dir /var/spool/squid
-
-#
-# Add any of your own refresh_pattern entries above these.
-#
-refresh_pattern ^ftp:		1440	20%	10080
-refresh_pattern ^gopher:	1440	0%	1440
-refresh_pattern -i (/cgi-bin/|\?) 0	0%	0
-refresh_pattern .		0	20%	4320
 
 [root@STM1 squid]# vim /etc/squid/badwords.txt
 torrent

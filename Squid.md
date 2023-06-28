@@ -1,5 +1,18 @@
 # INSTALL AND CONFIG SQUID ON RHEL/ CENTOS
 
+To implement this I've taken ```3 VM's```
+
+VM's of Centos 7.9 : ```Two```  
+
+VM's of Windows server 2016 : ```One```
+
+
+Config will be ```one master``` and other ```two client nodes```
+
+Master: 
+            
+
+
 
 
 ```To Install Squid```

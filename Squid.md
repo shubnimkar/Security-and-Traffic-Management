@@ -9,11 +9,35 @@ VM's of Windows server 2016 : ```One```
 
 Config will be ```one master``` and other ```two client nodes```
 
-Master: 
-            
+
+```Master``` : You should have two network adapter ```NAT``` and ```HOST-ONLY```
 
 
+```You can view in network settings in machine created, here you can see two adapters```
 
+![master](https://github.com/shubnimkar/Alpha-one/assets/46809421/eae29d83-a410-4fa5-80d3-02cba454b2b6)
+
+```ENS 37```
+
+![ens37-1](https://github.com/shubnimkar/Alpha-one/assets/46809421/cddb94e2-c0a8-4697-97c1-e11a5efb3bc2)
+
+```ENS 33```
+
+![ens33-1](https://github.com/shubnimkar/Alpha-one/assets/46809421/19c1d0c6-ec7d-41af-ab10-546c4c5f9ec0)
+
+# CLIENT1
+
+![Client1](https://github.com/shubnimkar/Alpha-one/assets/46809421/5355eae8-637c-4cc0-8d42-70143684cfee)
+
+# CLIENT2 (WINDOWS SERVER)
+
+![Win-conf](https://github.com/shubnimkar/Alpha-one/assets/46809421/925a1c88-2e8d-496c-9a9a-49d93214f662)
+
+# PROXY SETTINGS (TO BE DONE ON ALL CLIENT'S BROWSER)
+
+![winproxy](https://github.com/shubnimkar/Alpha-one/assets/46809421/809b0cef-ce0d-4688-a4b2-ba5fce213f2e)
+
+```Commands to be followed on master:```
 
 ```To Install Squid```
 

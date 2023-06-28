@@ -35,6 +35,13 @@ Config will be ```one master``` and other ```two client nodes```
 
 # PROXY SETTINGS (TO BE DONE ON ALL CLIENT'S BROWSER)
 
+```ON CENTOS MACHINE```
+
+![STM2 - VMware Workstation 24-06-2023 12_15_07 (1)](https://github.com/shubnimkar/Alpha-one/assets/46809421/de66ba7e-2f07-4adb-97b5-2f61ab9eaef0)
+
+
+```ON WINDOWS MACHINE```
+
 ![winproxy](https://github.com/shubnimkar/Alpha-one/assets/46809421/809b0cef-ce0d-4688-a4b2-ba5fce213f2e)
 
 ```Commands to be followed on master:```

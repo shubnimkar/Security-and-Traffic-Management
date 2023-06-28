@@ -1,3 +1,10 @@
+# Configuration of SQUID in Pfsense
+
+```Objective :```
+
+    To configure squid with user management in pfsense.
+
+```Configuration steps :```
 
 services > squid proxy > local cache >Squid Hard Disk Cache Settings > Hard Disk Cache Size >2048
 

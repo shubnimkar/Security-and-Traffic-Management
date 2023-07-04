@@ -196,4 +196,6 @@ just change nginx file
 	}
 
 ![ezgif com-video-to-gif (1)](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/37e4d631-e761-4139-869e-911c804c3e7d)
+
     
+### [Nginx-Loadbalancer](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/)

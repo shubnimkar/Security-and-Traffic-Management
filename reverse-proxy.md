@@ -111,3 +111,8 @@ http {
 }
 
 systemctl restart nginx
+
+![CentOS 7 - VMware Workstation 04-07-2023 11_35_22](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/277bd885-8549-468d-9503-9a2efef678cb)
+
+![CentOS 7 - VMware Workstation 04-07-2023 11_35_14](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/e9465002-581d-4e94-8c8d-9615d4f6880e)
+

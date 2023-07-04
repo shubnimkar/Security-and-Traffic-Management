@@ -199,3 +199,10 @@ just change nginx file
 
     
 ### [Nginx-Loadbalancer](https://docs.nginx.com/nginx/admin-guide/load-balancer/http-load-balancer/)
+
+
+
+make 3 websites on windows server 
+1st on 8000 for reverse proxy ip welcome to acts
+2nd on 9000 /hpcsa welcome to hpcsa
+3rd on 9500 /ditis welcome to ditis

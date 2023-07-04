@@ -17,26 +17,27 @@ yum install nginx
 
 
 [root@STM1 ~]# cat /etc/nginx/nginx.conf
-# For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
 
-user nginx;
-worker_processes auto;
-error_log /var/log/nginx/error.log;
-pid /run/nginx.pid;
-
-# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
-include /usr/share/nginx/modules/*.conf;
-
-events {
-    worker_connections 1024;
-}
-
-http {
-    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-                      '$status $body_bytes_sent "$http_referer" '
-                      '"$http_user_agent" "$http_x_forwarded_for"';
+	# For more information on configuration, see:
+	#   * Official English Documentation: http://nginx.org/en/docs/
+	#   * Official Russian Documentation: http://nginx.org/ru/docs/
+	
+	user nginx;
+	worker_processes auto;
+	error_log /var/log/nginx/error.log;
+	pid /run/nginx.pid;
+	
+	# Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.
+	include /usr/share/nginx/modules/*.conf;
+	
+	events {
+	    worker_connections 1024;
+	}
+	
+	http {
+	    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+	                      '$status $body_bytes_sent "$http_referer" '
+	                      '"$http_user_agent" "$http_x_forwarded_for"';
 
     access_log  /var/log/nginx/access.log  main;
 

@@ -1,5 +1,9 @@
-Open server manager to create a server:
-Lets start:
+Here we will understand how to create a local server on windows server and host a locally created static webpage.
+
+We just need a machine installed with any Windows Server OS.
+
+
+## Open server manager to create a server:
 
 * #### Step 1
   * Local Server 
@@ -46,12 +50,35 @@ Lets start:
 
 
 
-# on wm1 create website
+## Now let's create a static web page to see in our webserver is working or not
+
+* #### Step 1
+  * Go to C-drive
+  * Search for *inetpub* folder
+  * Create folder for your website
+  
 ![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_55_40](https://github.com/shubnimkar/Alpha-one/assets/46809421/2a9c78d5-0ab2-460f-94de-29e3d88f5e6a)
+
+* #### Step 2
+   * Create one html page inside the folder but be aware to name html file *index.html* only other wise it will not bind to IP
+     
 ![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_56_27](https://github.com/shubnimkar/Alpha-one/assets/46809421/2650956d-cc6c-4663-9856-d2e22979b56d)
-![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_59_00](https://github.com/shubnimkar/Alpha-one/assets/46809421/367983a8-c73a-4961-9c23-8ece8c645fae)
-![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_59_24](https://github.com/shubnimkar/Alpha-one/assets/46809421/4f326137-0f48-4184-96f6-977c87203847)
+
+* #### Step 3
+ * Now go to IIS from your server manager > click on your local server > Manage > IIS
+ * This page will open
+ * Right click on sites and add website
+ * Enter the site name as per your need
+ * select the path for the page we created in our local machine
+ * add IP or port , here I want to host it on port 7000
+   
 ![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_59_31](https://github.com/shubnimkar/Alpha-one/assets/46809421/bcde73a8-b9b6-4219-9497-b300b6a32c53)
+
+* #### after adding the site it'll look something like this,
+  
 ![Windows Server 2016 (1) - VMware Workstation 01-07-2023 15_59_38](https://github.com/shubnimkar/Alpha-one/assets/46809421/29025474-374d-4eda-bc2a-ec9c2915ec1f)
+
+* #### Now got to browser put your local ip of machine and port number and VOILA..!!
+
+
 ![Windows Server 2016 (1) - VMware Workstation 01-07-2023 16_00_24](https://github.com/shubnimkar/Alpha-one/assets/46809421/4476a881-d3ba-4bca-a4b4-77683bbe1e89)
-![Windows Server 2016 (1) - VMware Workstation 01-07-2023 16_04_05](https://github.com/shubnimkar/Alpha-one/assets/46809421/ca5c5940-cc8e-4149-9487-245a55d8d1b0)

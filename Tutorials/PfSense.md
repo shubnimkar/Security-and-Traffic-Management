@@ -1,4 +1,4 @@
-# Prerequisites
+<details><summary>Prerequisites</summary>
 
 
         Here I've three VM's
@@ -13,7 +13,10 @@ Download pfsense ISO from link below
 
 ![pfse](https://github.com/shubnimkar/Security-and-Traffic-Management/assets/46809421/30c14ef5-72bd-47aa-abac-88faeca5ce14)
 
-And we are good to go....!!!
+</details>
+
+
+ And we are good to go....!!!
 
 # ------------------------------------------------------------------------------
 
